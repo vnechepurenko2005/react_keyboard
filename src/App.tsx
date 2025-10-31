@@ -1,16 +1,16 @@
 import React from 'react';
 
-type PressedKey = {
-  title: string;
+type State = {
+  pressedKey: string;
 };
 
-export class App extends React.Component<{}, PressedKey> {
+export class App extends React.Component<{}, State> {
   state = {
-    title: 'Nothing was pressed yet',
+    pressedKey: 'Nothing was pressed yet',
   };
 
   handleKeyPressed = (event: KeyboardEvent) => {
-    this.setState({ title: `The last pressed key is [${event.key}]` });
+    this.setState({ pressedKey: `The last pressed key is [${event.key}]` });
   };
 
   componentDidMount(): void {
@@ -24,7 +24,7 @@ export class App extends React.Component<{}, PressedKey> {
   render(): React.ReactNode {
     return (
       <div className="App">
-        <p className="App__message">{this.state.title}</p>
+        <p className="App__message">{this.state.pressedKey}</p>
       </div>
     );
   }
